@@ -3,10 +3,10 @@
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "com.jonas.hello-world"
         version   = "99.999">
-    <name>Hello World!</name>
+    <name>Config</name>
 
     <description>
-        Test
+        Test - config text
     </description>
 
     <author href="http://phonegap.com" email="support@phonegap.com">
