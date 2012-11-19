@@ -3,7 +3,7 @@
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "com.jonas.gulkung"
         version   = "0.0.1">
-    <name>Config</name>
+    <name>Config-test</name>
 
     <description>
         Test - config text
