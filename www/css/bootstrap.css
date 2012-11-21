@@ -234,8 +234,8 @@ body {
   	background-color: #ffffff;
   
   /* Nedan kommer från index.css som ingår i phonegap */
-    background-color:#E4E4E4;
-/*    background-image:linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+/*    background-color:#E4E4E4;
+    background-image:linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
     background-image:-webkit-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
     background-image:-ms-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
     background-image:-webkit-gradient(
