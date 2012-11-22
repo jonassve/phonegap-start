@@ -12,81 +12,50 @@
         <link rel="stylesheet" media="screen" href="css/font-awesome.css" />
         
         <title>Kungen i gult</title>
-    </head>
-    <body>
 
- <!-- Navbar -->
-		<div class="navbar navbar-fixed-top">
-    		<div class="navbar-inner">
-    			<div class="container">  
-    <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-    				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-    					<div style="font-size: 30px;"><i class="icon-sort"></i> </div>       
-    				</a>
-    <!-- Be sure to leave the brand out there if you want it shown -->
-    				<a class="brand" href="#"><div style="font-size: 24px;"><i class="icon-map-marker"></i> 119.111.111</div></a>
-    <!-- Everything you want hidden at 940px or less, place within here -->
-    				<div class="nav-collapse collapse">
-                    	<ul class="nav">
- 							<li><a href="#"><div style="font-size: 28px;" class="lead text-success">Scen 1<i class="icon-unlock"></i></div></a></li>
-                            <li><a href="#"><div style="font-size: 28px;" class="lead text-success">Scen 1<i class="icon-unlock"></i></div></a></li>
-                            <li><a href="#"><div style="font-size: 28px;" class="lead text-error">Scen 1<i class="icon-lock"></i></div></a></li>
-                            <li><a href="#"><div style="font-size: 28px;" class="lead text-error">Scen 1<i class="icon-lock"></i></div></a></li>
-                            <li><a href="#"><div style="font-size: 28px;" class="lead text-error">Scen 1<i class="icon-lock"></i></div></a></li>
-                            <li><a href="#"><div style="font-size: 28px;" class="lead text-error">Scen 1<i class="icon-lock"></i></div></a></li>
-                            <li><a href="#"><div style="font-size: 28px;" class="lead text-error">Scen 1<i class="icon-lock"></i></div></a></li>
-                            <li><a href="#"><div style="font-size: 28px;" class="lead text-error">Scen 1<i class="icon-lock"></i></div></a></li>
-                        </ul>
-                    </div>
-    <!-- .nav, .navbar-search, .navbar-form, etc --> 
-    			</div>
-    		</div>
-    	</div>
- 
- 
-        <div class="well">
-            <h1>Scenens namn</h1>
-            <p class="lead">En längre text med ca 100 ord. A lightweight, flexible component to showcase key content on your site. It works well on marketing and content-heavy sites.A lightweight, flexible component to showcase key content on your site. It works well on marketing and content-heavy sites.A lightweight, flexible component to showcase key content on your site. It works well on marketing and content-heavy sites.A lightweight, flexible component to showcase key content on your site. It works well on marketing and content-heavy sites.A lightweight, flexible component to showcase key content on your site. It works well on marketing and content-heavy sites.A lightweight, flexible component to showcase key </p> 
-        </div>
-
-<!-- Ledtrådarna -->
-        <div>
-			<button type="button" class="btn btn-large btn-block" data-toggle="collapse" data-target="#clue1"><h2 class="text-error">Ledtråd 1</h2></button> 
-		</div>
-		<div id="clue1" class="collapse">
-			<div class="text-error lead">1 Anim pariatur cliche...</div>
-		</div>
-
-        <div>
-			<button type="button" class="btn btn-large btn-block" data-toggle="collapse" data-target="#clue2"><h2 class="text-warning">Ledtråd 2</h2></button> 
-		</div>
-		<div id="clue2" class="collapse">
-			<div class="text-warning lead">2 Anim pariatur cliche...</div>
-		</div>
- 
-        <div>
-			<button type="button" class="btn btn-large btn-block" data-toggle="collapse" data-target="#clue3"><h2 class="text-success">Ledtråd 3</h2></button> 
-		</div>
-		<div id="clue3" class="collapse">
-			<div class="text-success lead">3 Anim pariatur cliche...</div>
-		</div>
-
-		<div class="text-warning pagination-centered">
-        	<small><em>Kungen i gult</em></small>
-        </div>                
-<!--    <div class="app">
-            <div id="deviceready">
-                <p class="status pending blink">Connecting to Device</p>
-                <p class="status complete blink hide">Device is Ready</p>
-            </div>
-        </div> -->
-        <script src="phonegap.js"></script>
+    	<script type="text/javascript" charset="utf-8" src="cordova-2.2.0.js"></script>
+		<script src="phonegap.js"></script>
         <script type="text/javascript" src="cordova-2.0.0.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
-        <script type="text/javascript">
-            app.initialize();
-        </script>
+        <script type="text/javascript"></script>
         <script src="http://code.jquery.com/jquery-latest.js"></script>
 		<script src="js/bootstrap.js"></script>
+
+    <script type="text/javascript" charset="utf-8">
+	    
+    // Wait for Cordova to load
+    //
+    document.addEventListener("deviceready", onDeviceReady, false);
+
+    var watchID = null;
+
+    // Cordova is ready
+    //
+    function onDeviceReady() {
+        // Throw an error if no update is received every 30 seconds
+        var options = { timeout: 30000 };
+        watchID = navigator.geolocation.watchPosition(onSuccess, onError, options);
+    }
+
+    // onSuccess Geolocation
+    //
+    function onSuccess(position) {
+        var element = document.getElementById('geolocation');
+        element.innerHTML = 'Latitude: '  + position.coords.latitude      + '<br />' +
+                            'Longitude: ' + position.coords.longitude     + '<br />' +
+                            '<hr />'      + element.innerHTML;
+    }
+
+    // onError Callback receives a PositionError object
+    //
+    function onError(error) {
+        alert('code: '    + error.code    + '\n' +
+              'message: ' + error.message + '\n');
+    }
+
+    </script>
+  </head>
+  <body>
+    <p id="geolocation">Watching geolocation...</p>
     </body>
 </html>
